@@ -14,9 +14,7 @@ void main() {
 	vec2 st = gl_FragCoord.xy/u_resolution;
 	vec4 color1 = texture2D(u_tex0, st);
 	vec4 color2 = texture2D(tex2, st);
-	float r = max(color1.r, color2.r);
-	float g = max(color1.g, color2.g);
-	float b = max(color1.b, color2.b);
-	gl_FragColor = vec4(r, g, b, 1.0);
+
+	gl_FragColor = max(color1, color2);
 }
 

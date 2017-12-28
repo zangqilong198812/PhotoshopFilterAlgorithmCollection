@@ -1,3 +1,18 @@
+# Blend Filter
+
+* BasicBlend 不透明叠加
+* colorBurnBlend 颜色加深
+* colorDodge 颜色减弱
+* LinearBurn 线性加深
+* LinearDodge 线性减弱
+* Lighten 变亮
+* Darkten 变暗
+* Overlay 叠加
+* SoftLight 柔光
+* HardLight 强光
+* Screen 滤色
+
+
 # 如何调试shader
 
 当然方法和工具很多了。

@@ -14,6 +14,11 @@ void main() {
 	vec2 st = gl_FragCoord.xy/u_resolution;
 	vec4 base = texture2D(u_tex0, st);
 	vec4 blend = texture2D(tex2, st);
-	vec4 color = base/(vec4(1.0) - blend);
+	vec4 color = base;
+	if (blend <= 0.5) {
+    	color = 2.0 * base * blend + base*base - 2.0 * base*base*blend;
+	} else {
+    	color = 2.0 * sqrt(base) * blend - sqrt(base) + 2.0 * base - 2.0 * base*blend;
+	}
 	gl_FragColor = color;
 }
