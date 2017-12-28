@@ -1,0 +1,21 @@
+#ifdef GL_ES
+precision mediump float;
+#endif
+
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+uniform float u_time;
+uniform sampler2D u_tex0; // loaded
+uniform vec2 u_tex0Resolution;
+uniform sampler2D tex2; // loaded
+uniform vec2 tex2Resolution;
+
+void main() {
+	vec2 st = gl_FragCoord.xy/u_resolution;
+	vec4 color1 = texture2D(u_tex0, st);
+	vec4 color2 = texture2D(tex2, st);
+	float r = min(color1.r, color2.r);
+	float g = min(color1.g, color2.g);
+	float b = min(color1.b, color2.b);
+	gl_FragColor = vec4(r, g, b, 1.0);
+}
